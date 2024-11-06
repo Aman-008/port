@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        /* Basic CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f4f4f9;
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar */
+        nav {
+            width: 100%;
+            background-color: #333;
+            color: #f4f4f9;
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: #f4f4f9;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff9900;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 120px 50px 50px;
+            background-color: #333;
+            color: #f4f4f9;
+        }
+
+        header h1 {
+            font-size: 3em;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2em;
+            margin: 20px 0;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background: #ff9900;
+            display: block;
+            margin: 10px auto;
+            border-radius: 4px;
+        }
+
+        /* About Section */
+        .about,
+        .skills,
+        .certifications,
+        .contact {
+            margin: 60px 0;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .about p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Skills with Progress Bar */
+        .skills ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skills li {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .progress {
+            background: #ddd;
+            border-radius: 8px;
+            height: 10px;
+            width: 100%;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: #333;
+            width: 0;
+            animation: growBar 2s ease forwards;
+        }
+
+        @keyframes growBar {
+            to {
+                width: var(--skill-level);
+            }
+        }
+
+        /* Lightbox for Certifications */
+        .certifications img {
+            width: 200px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .certifications img:hover {
+            transform: scale(1.1);
+        }
+
+        #lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        /* Contact Section */
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact input,
+        .contact textarea,
+        .contact button {
+            padding: 15px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact button {
+            background-color: #333;
+            color: #f4f4f9;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Aman Kumar</h1>
+        <p>Web Developer | Designer | Programmer</p>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- About Section -->
+        <section id="about" class="about" data-aos="fade-up">
+            <h2 class="section-title">About Me</h2>
+            <p>Hello! I'm a passionate web developer with experience in creating dynamic and responsive websites.</p>
+        </section>
+
+        <!-- Skills Section with Progress Bars -->
+        <section id="skills" class="skills" data-aos="fade-up">
+            <h2 class="section-title">Skills</h2>
+            <ul>
+                <li>HTML
+                    <div class="progress" style="--skill-level: 90%;">
+                        <div class="progress-bar"></div>
+                    </div>
+                </li>
+                <li>CSS
+                    <div class="progress" style="--skill-level: 85%;">
+                        <div class="progress-bar"></div>
+                    </div>
+                </li>
+                <li>JavaScript
+                    <div class="progress" style="--skill-level: 80%;">
+                        <div class="progress-bar"></div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="certifications" data-aos="fade-up">
+            <h2 class="section-title">Certifications</h2>
+            <img src="certi1.jpg" alt="Certificate 1" onclick="openLightbox(this.src)">
+            <img src="certi2.jpg" alt="Certificate 2" onclick="openLightbox(this.src)">
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact" data-aos="fade-up">
+            <h2 class="section-title">Contact Me</h2>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Certificate">
+    </div>
+
+    <!-- AOS and Lightbox Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+
+        function openLightbox(src) {
+            document.getElementById('lightbox').style.display = 'flex';
+            document.getElementById('lightbox-img').src = src;
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+    </script>
+
+</body>
+
+</html>
